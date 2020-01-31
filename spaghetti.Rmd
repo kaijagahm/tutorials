@@ -8,3 +8,27 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+
+# Load libraries
+```{r, echo = F}
+library(tidyverse)
+source("spaghetti_functions.R")
+```
+
+## 1. Open the box of pasta and take a look inside.
+```{r}
+head(box)
+# The box contains pasta, and it is not yet cooked.
+```
+
+## 2. Put water into a pot
+```{r}
+pot <- data.frame(ingredient = "water", cooked = 0) # the water is cold.
+```
+
+## 3. Heat the water
+```{r}
+pot <- cook(pot, "water", 10)
+```
+
+
