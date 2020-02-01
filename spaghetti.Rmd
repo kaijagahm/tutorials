@@ -15,20 +15,61 @@ library(tidyverse)
 source("spaghetti_functions.R")
 ```
 
-## 1. Open the box of pasta and take a look inside.
+# Steps
+## 1. Take a look at the box of pasta and the pot of water
 ```{r}
-head(box)
-# The box contains pasta, and it is not yet cooked.
+box # the box contains pasta that is not yet cooked
+pot # the pot is empty: contains only cold air.
 ```
 
-## 2. Put water into a pot
+## 2. Fill the pot with water
 ```{r}
-pot <- data.frame(ingredient = "water", cooked = 0) # the water is cold.
+pot <- fill(pot)
+pot
 ```
 
 ## 3. Heat the water
 ```{r}
-pot <- cook(pot, "water", 10)
+pot <- pot %>% cook(what = "water", minutes = 10)
+pot
 ```
 
+## 4. Put in the pasta
+```{r}
+pot <- pot %>% addpasta()
+pot
+```
+
+## 5. Cook the pasta
+```{r}
+pot
+
+pot <- pot %>% cook("water", 10)
+pot
+```
+
+## 6. Serve the pasta
+```{r}
+pasta <- drain(pot)
+pasta
+```
+
+# Summary
+## The traditional way to do it:
+```{r}
+pot <- data.frame(ingredient = as.character("air"), cooked = 0)
+pasta <- drain(cook(add_pasta(cook(fill(pot), what = "water", minutes = 10)), what = "pasta", minutes = 10))
+pasta
+```
+
+## The way to do it with the dplyr pipe:
+```{r}
+pasta <- pot %>% 
+  fill() %>% 
+  cook(what = "water", minutes = 10) %>%
+  add_pasta() %>%
+  cook(what = "pasta", minutes = 10) %>%
+  drain()
+pasta
+```
 
