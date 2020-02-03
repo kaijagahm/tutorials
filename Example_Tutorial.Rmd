@@ -1,0 +1,28 @@
+---
+title: "Cooking Spaghetti with Pipes"
+author: "Kaija Gahm"
+date: "January 2020"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+source("spaghetti_functions.R")
+```
+
+![The Treachery of Images, by Rene Magritte \n (https://en.wikipedia.org/wiki/The_Treachery_of_Images#/media/File:MagrittePipe.jpg)](/images/magritte_pipe.jpg)
+
+*Background info on the pipe, magrittr, and dplyr*
+
+You've probably cooked spaghetti before. If you're like some people I know, then maybe spaghetti is the only thing you've ever cooked. 
+
+But have you ever cooked spaghetti using *pipes*? I didn't think so.
+
+To start out, I'm going to give you a box of pasta (`box`) and a pot (`pot`) to cook it in. Go ahead and take a look at your materials to see what you're working with.
+
+<img src="images/box.jpg" width="250"> <img src="images/pot.jpg" width="250">
+```{r explore_materials, exercise = TRUE}
+
+```
+
