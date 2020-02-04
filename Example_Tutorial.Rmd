@@ -2,19 +2,44 @@
 title: "Cooking Spaghetti with Pipes"
 author: "Kaija Gahm"
 date: "January 2020"
-output: learnr::tutorial
+output:
+  learnr::tutorial:
+    progressive: true
+    allow_skip: true
 runtime: shiny_prerendered
 ---
 
 ```{r setup, include=FALSE}
 library(learnr)
 source("spaghetti_functions.R")
+library(dplyr)
 ```
 
 ![The Treachery of Images, by Rene Magritte \n (https://en.wikipedia.org/wiki/The_Treachery_of_Images#/media/File:MagrittePipe.jpg)](/images/magritte_pipe.jpg)
 
-*Background info on the pipe, magrittr, and dplyr*
+## Introduction
+### Background
+Behold, the pipe. The above image is a famous painting by Rene Magritte, the namesake of the [magrittr ](https://cran.r-project.org/web/packages/magrittr/vignettes/magrittr.html) package.
 
+magrittr introduces several piping operators. The most common of them is `%>%` -- this pipe is so common, in fact, that it has been incorporated into [dplyr](https://dplyr.tidyverse.org/), which is where many people first encounter it.
+
+### What does %>% do?
+You can't smoke the `%>%`. It's more like a utility pipe, a form of transportation for your data objects. The pipe takes the result of the operation on its left and "pipes" that result over to become the first argument of the function on its right.
+
+You can string together multiple pipes in a row. In fact, that's what's so cool about it. The pipe allows your code to be read _linearly_. It can be helpful to think of `%>%` as standing for something close to "...and then..."
+
+### Why is %>% useful?
+By translating `%>%` as "and then," we are making an analogy to language. Whenever we describe a task to someone, we break it down into sequential steps: do one thing, then another, then another.
+
+Turns out, we can talk to computers this way too. 
+
+## Learning to cook
+### Recipes
+Recipes are the ultimate stepwise instructions. You start with some things, mix them together, and then keep adding other things or otherwise further modifying the mixture.
+
+For that reason, let's cook some spaghetti in order to see how useful pipes can be.
+
+### Gathering ingredients
 You've probably cooked spaghetti before. If you're like some people I know, then maybe spaghetti is the only thing you've ever cooked. 
 
 But have you ever cooked spaghetti using *pipes*? I didn't think so.
@@ -26,3 +51,20 @@ To start out, I'm going to give you a box of pasta (`box`) and a pot (`pot`) to 
 
 ```
 
+<div id="explore_materials-hint">
+**Hint:** Look at your box. How is it `str`uctured? What's in it? Now do the same with the pot: you wouldn't want to start cooking if there was anything inside...
+</div>
+
+### Prep work
+Now, let's fill the pot with water. Change the following code so that it uses a pipe.
+```{r fill_pot, exercise = TRUE}
+pot <- fill(pot)
+```
+
+<div id="fill_pot-hint">
+**Hint:** (take your) `pot` _and then_ `fill()` (it)... 
+</div>
+
+```{r fill_pot-solution}
+pot <- pot %>% fill()
+```
