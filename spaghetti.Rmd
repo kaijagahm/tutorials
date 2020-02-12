@@ -36,7 +36,8 @@ pot
 
 ## 4. Put in the pasta
 ```{r}
-pot <- pot %>% addpasta()
+pot <- pot %>% add(from = box, .)
+box
 pot
 ```
 
