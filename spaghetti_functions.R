@@ -11,10 +11,16 @@ fill <- function(df){
   df %>% mutate(ingredient = recode(ingredient, "air" = "water")) %>% return()
 }
 
-# Add pasta to the pot
-add_pasta <- function(df){
-  full_join(df, box) %>% return()
+#Add pasta to the pot
+add <- function(what = "pasta", from = box, to = pot){
+  from %>% filter(ingredient == what) %>% full_join(to) %>% return()
 }
+
+# add <- function(from = box, to = pot){
+#   full_join(box, pot) %>% return()
+#   box <<- data.frame(ingredient = "air",
+#                      cooked = 0)
+# }
 
 # Cook (heat) the pasta (water)
 cook <- function(df, what = NULL, minutes = 1){
