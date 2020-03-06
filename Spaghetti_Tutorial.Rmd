@@ -39,8 +39,10 @@ Turns out, we can talk to computers this way too.
 ### Recipes
 Recipes are the ultimate stepwise instructions. You start with some things, mix them together, and then keep adding other things or otherwise modifying the mixture.
 
+<img src="images/spaghetti_recipe.jpg" width="600">
+
 In order to see how useful pipes can be, let's cook some spaghetti.
-[RECIPE STEPS FOR SPAGHETTI]
+
 
 ### Gathering ingredients
 You've probably cooked spaghetti before. If you're like some people I know, then maybe spaghetti is the only thing you've ever cooked. 
@@ -81,6 +83,7 @@ pot <- pot %>% fill()
 
 ### 
 Now we have to heat the water. 10 minutes should be plenty.
+<img src="images/boiling_water.jpg" width="500">
 ```{r heat_water, exercise = TRUE, exercise.setup = "prepare-potwater"}
 # Change this code so that it uses a pipe.
 pot <- cook(pot, what = "water", minutes = 10)
@@ -116,6 +119,7 @@ pot <- add(what = "pasta", from = box, to = pot)
 ```{r add_pasta-solution}
 pot <- pot %>% add(what = "pasta", from = box, to = .)
 ```
+<img src="images/spaghetti_in.jpg" width="500">
 
 ### Cooking the pasta
 
@@ -135,6 +139,7 @@ pot
 ```{r cook_pasta-solution}
 pot <- pot %>% cook(what = "pasta", minutes = 10)
 ```
+<img src="images/spaghetti_cooking.jpg" width="500">
 
 ### Draining the pasta
 
@@ -156,6 +161,7 @@ pasta
 ```{r drain_pasta-solution}
 pasta <- pot %>% drain()
 ```
+<img src="images/draining_spaghetti.jpg" width="500">
 
 ## The whole process... piped!
 Now you know how to use the pipe. But so what? We just broke down the cooking process into so many steps, so many lines of code, that using the pipe doesn't seem to make it any more efficient.
@@ -180,7 +186,7 @@ pot <- pot %>% fill() %>% cook(what = "water", minutes = 10)
 ### 
 Pipes get even more useful when you have lots and lots of nested parentheses. Let's scale up to our entire cooking process.
 
-[RECIPE STEPS]
+<img src="images/spaghetti_recipe.jpg" width="600">
 
 ```{r whole_cooking_process, exercise = TRUE}
 # Phew, this is awful! Change this code so that it uses pipes instead of nested parentheses.
